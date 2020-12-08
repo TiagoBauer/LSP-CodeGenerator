@@ -30,7 +30,7 @@ function simpleLspXMLCodeGen(tags, varName, varArray, fatherNode){
             }
             lsp += simpleLspXMLCodeGen(tags[i].elements, varName, varArray, tags[i].name);
             if(tags[i].elements[0].type == 'text'){
-                lsp += ' \"</' + tags[i].name + '>\"';
+                lsp += ' + \"</' + tags[i].name + '>\"';
             } else {
                 lsp += ';\n'+ varName + ' = ' + varName + ' + \"</' + tags[i].name + '>\"';
             }
