@@ -36,7 +36,7 @@ function simpleLspXMLCodeGen(tags, varName, varArray, fatherNode){
             }
         } else if(tags[i].type == 'text') {
             lsp += ' + a' + fatherNode;
-            if(varArray.indexOf(fatherNode) == -1)
+            if(varArray.indexOf('a'+fatherNode) == -1)
                 varArray.push('a' + fatherNode);
         }
     }
