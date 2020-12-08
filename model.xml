@@ -1,18 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?>
-<bookstore>
-    <book>
-        <title language="Portuguese">Everyday Italian</title>
-        <author>Giada De Laurentiis</author>
-        <year>2005</year>
-    </book>
-    <book>
-        <title language="Portuguese">Everyday Italian</title>
-        <author nickname="Fi">Giada De Laurentiis</author>
-        <year>2020</year>
-    </book>
-    <magazine>
-        <title language="Portuguese">Everyday Italian</title>
-        <author>Giada De Laurentiis</author>
-        <year>2015</year>
-    </magazine>
-</bookstore>
+<?xml version="1.0" encoding="UTF-8"?>
+<Document
+	xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<CstmrCdtTrfInitn>
+		<GrpHdr>
+			<MsgId>00000000322020</MsgId>
+			<CreDtTm>2020-11-03T10:11:46</CreDtTm>
+			<NbOfTxs>1</NbOfTxs>
+			<CtrlSum>100.00</CtrlSum>
+			<InitgPty>
+				<Nm>FAURECIA S.A.</Nm>
+				<Id>
+					<OrgId>
+						<BICOrBEI>FAURFRPPXXX</BICOrBEI>
+					</OrgId>
+				</Id>
+			</InitgPty>
+		</GrpHdr>
+		<PmtInf>
+			<PmtInfId>Other Ustrd</PmtInfId>
+			<PmtMtd>TRF</PmtMtd>
+			<PmtTpInf>
+				<LclInstrm>
+					<Prtry>NURG</Prtry>
+				</LclInstrm>
+				<CtgyPurp>
+					<Cd>SALA</Cd>
+				</CtgyPurp>
+			</PmtTpInf>
+			<ReqdExctnDt>2020-11-05</ReqdExctnDt>
+			<Dbtr>
+				<Nm>FAURECIA AUTOMOTIVE DO BRASIL</Nm>
+				<PstlAdr>
+					<Ctry>BR</Ctry>
+				</PstlAdr>
+				<Id>
+					<OrgId>
+						<Othr>
+							<Id>FAURECIA PAYROLL SETEMBRO 2020</Id>
+						</Othr>
+					</OrgId>
+				</Id>
+			</Dbtr>
+			<DbtrAcct>
+				<Id>
+					<IBAN>BR7290400888022710130766490C1</IBAN>
+				</Id>
+			</DbtrAcct>
+			<DbtrAgt>
+				<FinInstnId>
+					<ClrSysMmbId>
+						<MmbId>033</MmbId>
+					</ClrSysMmbId>
+				</FinInstnId>
+				<BrnchId>
+					<Id>29040</Id>
+				</BrnchId>
+			</DbtrAgt>
+			<CdtTrfTxInf>
+				<PmtId>
+					<InstrId>00000000104574</InstrId>
+					<EndToEndId>00000000104574</EndToEndId>
+				</PmtId>
+				<Amt>
+					<InstdAmt Ccy="BRL">100.00</InstdAmt>
+				</Amt>
+				<CdtrAgt>
+					<FinInstnId>
+						<BIC>BSCHBRSPXXX</BIC>
+						<ClrSysMmbId>
+							<MmbId>033</MmbId>
+						</ClrSysMmbId>
+					</FinInstnId>
+				</CdtrAgt>
+				<Cdtr>
+					<Nm>FAURECIA AUTOMOTIVE DO BRASIL</Nm>
+					<PstlAdr>
+						<Ctry>BR</Ctry>
+					</PstlAdr>
+					<Id>
+						<PrvtId>
+							<Othr>
+								<Id>12345</Id>
+								<SchmeNm>
+									<Cd>TXID</Cd>
+								</SchmeNm>
+							</Othr>
+						</PrvtId>
+					</Id>
+				</Cdtr>
+				<CdtrAcct>
+					<Id>
+						<Othr>
+							<Id>1BR72904008880</Id>
+						</Othr>
+					</Id>
+					<Tp>
+						<Cd>SVGS</Cd>
+					</Tp>
+				</CdtrAcct>
+				<RmtInf>
+					<Ustrd>Other Ustrd</Ustrd>
+				</RmtInf>
+			</CdtTrfTxInf>
+		</PmtInf>
+	</CstmrCdtTrfInitn>
+</Document>

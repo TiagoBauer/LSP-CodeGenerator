@@ -6,29 +6,20 @@ const CONS_NUME = 'NUMERICO';
 //let xml = require('./model.xml');
 let convert = require('xml-js');
 let fs = require('fs');
+
 // DEFINE THE VARIABLES NAMES AND GENERAL XML VARIABLE
 let lspVarName = 'aXml';
 let varArray = ['aXml'];
 
 let xml = require('fs').readFileSync('model.xml', 'utf8');
-/*let xml ='<?xml version="1.0" encoding="utf-8"?>' +
-'<note importance="high" logged="true">' +
-'    <title ccy="TEXTE">15</title>' +
-'    <todo>Work</todo>' +
-'    <todo>15</todo>' +
-'</note>';*/
 let fullConvertion = convert.xml2js(xml); 
 
-//FULL BODY CONVERTION
-//console.log(fullConvertion.elements[0]);
-//console.log(fullConvertion.elements[0].elements[0]);
-
-xml = simpleLspXMLCodeGen(fullConvertion.elements, lspVarName, varArray);
+xml = simpleLspXMLCodeGen(fullConvertion.elements, lspVarName, varArray, '');
 xml = xml.substring(1, xml.length);
 xml = simpleVarGenerator(varArray, CONS_ALFA) + xml + ';';
 console.log(xml);
 
-function simpleLspXMLCodeGen(tags, varName, varArray){
+function simpleLspXMLCodeGen(tags, varName, varArray, fatherNode){
     let lsp = '';
     for(let i = 0; i < tags.length; i++){
         if(tags[i].type == 'element'){
@@ -37,11 +28,16 @@ function simpleLspXMLCodeGen(tags, varName, varArray){
             } else {
                 lsp += ';\n'+ varName + ' = ' + varName + ' + \"<' + tags[i].name + ' ' + generateAttributesXMLLSP(tags[i].attributes) + '>\"';
             }
-            lsp += simpleLspXMLCodeGen(tags[i].elements, varName, varArray);
-            lsp += ';\n'+ varName + ' = ' + varName + ' + \"</' + tags[i].name + '>\"';
+            lsp += simpleLspXMLCodeGen(tags[i].elements, varName, varArray, tags[i].name);
+            if(tags[i].elements[0].type == 'text'){
+                lsp += ' \"</' + tags[i].name + '>\"';
+            } else {
+                lsp += ';\n'+ varName + ' = ' + varName + ' + \"</' + tags[i].name + '>\"';
+            }
         } else if(tags[i].type == 'text') {
-            lsp += ' + a' + tags[i].text;
-            varArray.push('a' + tags[i].text);
+            lsp += ' + a' + fatherNode;
+            if(varArray.indexOf(fatherNode) == -1)
+                varArray.push('a' + fatherNode);
         }
     }
     return lsp;
