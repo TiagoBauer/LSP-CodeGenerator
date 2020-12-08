@@ -13,10 +13,11 @@ let varArray = ['aXml'];
 
 let xml = require('fs').readFileSync('model.xml', 'utf8');
 let fullConvertion = convert.xml2js(xml); 
+let xmlHeader = getXMLHeader(xml, lspVarName);
 
 xml = simpleLspXMLCodeGen(fullConvertion.elements, lspVarName, varArray, '');
 xml = xml.substring(1, xml.length);
-xml = simpleVarGenerator(varArray, CONS_ALFA) + xml + ';';
+xml = simpleVarGenerator(varArray, CONS_ALFA) + '\n' + clearVariables(varArray, CONS_ALFA) + '\n' + xmlHeader + xml + ';';
 console.log(xml);
 
 function simpleLspXMLCodeGen(tags, varName, varArray, fatherNode){
@@ -62,4 +63,21 @@ function generateAttributesXMLLSP(attributes){
     }
     code = code.substring(0, code.length-1);
     return code;
+}
+
+function clearVariables(varArray, type){
+    let variables = '';
+    for(let i = 0; i < varArray.length; i++){
+        if(type == CONS_ALFA){
+            variables += varArray[i] + ' = "";\n';
+        } else if (type == CONS_NUME){
+            variables +=  varArray[i] + ' = 0;\n';
+        }
+    }
+    return variables;
+}
+
+function getXMLHeader(xml, lspVarName){
+    let closingHeader = xml.indexOf('>');
+    return lspVarName + ' = ' + lspVarName + ' + \"' + xml.substring(0, closingHeader + 1) + '\"';
 }
