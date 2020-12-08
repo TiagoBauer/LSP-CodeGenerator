@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "moment": "^2.29.1",
-    "xml-js": "^1.6.11"
+    "xml-js": "^1.6.11",
+    "xml-loader": "^1.2.1",
+    "xmlhttprequest": "^1.8.0"
   }
 }

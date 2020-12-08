@@ -5,17 +5,18 @@ const CONS_NUME = 'NUMERICO';
 // LIB TO AQUIRE THE XML IN A JS OBJECT
 //let xml = require('./model.xml');
 let convert = require('xml-js');
-
+let fs = require('fs');
 // DEFINE THE VARIABLES NAMES AND GENERAL XML VARIABLE
 let lspVarName = 'aXml';
 let varArray = ['aXml'];
 
-let xml ='<?xml version="1.0" encoding="utf-8"?>' +
+let xml = require('fs').readFileSync('model.xml', 'utf8');
+/*let xml ='<?xml version="1.0" encoding="utf-8"?>' +
 '<note importance="high" logged="true">' +
 '    <title ccy="TEXTE">15</title>' +
 '    <todo>Work</todo>' +
 '    <todo>15</todo>' +
-'</note>';
+'</note>';*/
 let fullConvertion = convert.xml2js(xml); 
 
 //FULL BODY CONVERTION
