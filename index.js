@@ -79,5 +79,9 @@ function clearVariables(varArray, type){
 
 function getXMLHeader(xml, lspVarName){
     let closingHeader = xml.indexOf('>');
-    return lspVarName + ' = ' + lspVarName + ' + \"' + xml.substring(0, closingHeader + 1) + '\"';
+    let header = xml.substring(0, closingHeader + 1);
+
+    header = header.split('"').join('\\"');
+    
+    return header = lspVarName + ' = ' + lspVarName + ' + \"' + header + '\"';;
 }
