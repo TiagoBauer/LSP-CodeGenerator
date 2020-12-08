@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bookstore>
+    <book>
+        <title language="Portuguese">Everyday Italian</title>
+        <author>Giada De Laurentiis</author>
+        <year>2005</year>
+    </book>
+    <book>
+        <title language="Portuguese">Everyday Italian</title>
+        <author nickname="Fi">Giada De Laurentiis</author>
+        <year>2020</year>
+    </book>
+    <magazine>
+        <title language="Portuguese">Everyday Italian</title>
+        <author>Giada De Laurentiis</author>
+        <year>2015</year>
+    </magazine>
+</bookstore>
