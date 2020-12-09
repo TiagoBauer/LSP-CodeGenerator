@@ -1,6 +1,7 @@
 // LSP VARIABLE TYPES
 const CONS_ALFA = 'ALFA';
 const CONS_NUME = 'NUMERICO';
+const CONS_DATE = 'DATE';
 
 // LIB TO AQUIRE THE XML IN A JS OBJECT
 //let xml = require('./model.xml');
@@ -83,5 +84,5 @@ function getXMLHeader(xml, lspVarName){
 
     header = header.split('"').join('\\"');
     
-    return header = lspVarName + ' = ' + lspVarName + ' + \"' + header + '\"';;
+    return header = lspVarName + ' = ' + lspVarName + ' + \"' + header + '\";';
 }
